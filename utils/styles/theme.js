@@ -29,7 +29,7 @@ export const theme = {
   textFonts: {
     title: "Saira-Medium",
     body: "Quicksand-Medium",
-    button: "Quicksand-Bold",
+    bold: "Quicksand-Bold",
   },
 };
 

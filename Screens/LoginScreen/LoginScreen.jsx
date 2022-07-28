@@ -17,7 +17,7 @@ const bgImage = require("../../assets/pexels-chris-lee-12456043.jpg");
 
 const { colors, spacing, textFonts } = theme;
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [focusEmail, setFocusEmail] = useState(false);
@@ -32,6 +32,7 @@ const LoginScreen = () => {
       setIsShowKeyboard(false);
       Keyboard.removeAllListeners("keyboardDidHide");
     });
+    navigation.navigate("Home");
     if (emptyField) return;
 
     hideKeyboard();
@@ -136,7 +137,7 @@ const LoginScreen = () => {
                     color: colors.primaryBg,
                     fontSize: 20,
                     lineHeight: 22,
-                    fontFamily: textFonts.button,
+                    fontFamily: textFonts.body,
                   }}
                 >
                   Sign in
@@ -150,6 +151,7 @@ const LoginScreen = () => {
                   marginTop: 16,
                   fontFamily: textFonts.body,
                 }}
+                onPress={() => navigation.navigate("Registration")}
               >
                 Have no account? Sign up
               </Text>

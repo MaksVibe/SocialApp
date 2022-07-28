@@ -19,7 +19,7 @@ const addIcon = require("../../assets/add.png");
 
 const { colors, spacing, textFonts } = theme;
 
-export default function RegistrationScreen() {
+const RegistrationScreen = ({ navigation }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -175,9 +175,9 @@ export default function RegistrationScreen() {
                 <Text
                   style={{
                     color: colors.primaryBg,
-                    fontSize: 16,
-                    lineHeight: 19,
-                    fontFamily: textFonts.button,
+                    fontSize: 20,
+                    lineHeight: 22,
+                    fontFamily: textFonts.body,
                   }}
                 >
                   Sign up
@@ -191,6 +191,7 @@ export default function RegistrationScreen() {
                   marginTop: 16,
                   fontFamily: textFonts.body,
                 }}
+                onPress={() => navigation.navigate("Login")}
               >
                 Already have an account? Sign in
               </Text>
@@ -200,7 +201,7 @@ export default function RegistrationScreen() {
       </TouchableWithoutFeedback>
     </KeyboardAvoidingView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -271,3 +272,5 @@ const styles = StyleSheet.create({
     fontFamily: textFonts.body,
   },
 });
+
+export default RegistrationScreen;
