@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View, Text } from "react-native";
 import * as SplashScreen from "expo-splash-screen";
 import * as Font from "expo-font";
-import RegistrationScreen from "./Screens/RegistrationScreen/RegistrationScreen";
-import LoginScreen from "./Screens/LoginScreen/LoginScreen";
+
+import { NavigationContainer } from "@react-navigation/native";
+import LoadingScreen from "./Screens/LoadingScreen/LoadingScreen";
+import { useRoute } from "./router";
 
 export default function App() {
   const [isReady, setIsReady] = useState(false);
+  const routing = useRoute(true);
 
   useEffect(() => {
     async function prepare() {
@@ -36,21 +37,9 @@ export default function App() {
     prepare();
   }, []);
 
-  return !isReady ? (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Loading...</Text>
-    </View>
-  ) : (
-    <View style={styles.container}>
-      <LoginScreen />
-      <StatusBar style="auto" />
-    </View>
+  return (
+    <NavigationContainer>
+      {!isReady ? <LoadingScreen /> : routing}
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-  },
-});
