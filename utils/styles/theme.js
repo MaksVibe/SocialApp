@@ -1,5 +1,6 @@
 const palette = {
   white: "#FFFFFF",
+  totalBlack: "#000",
   black: "#212121",
   black2: "rgba(33, 33, 33, 0.8)",
   black3: "rgba(0, 0, 0, 0.03)",
@@ -22,6 +23,7 @@ export const theme = {
     linkText: palette.blue,
     thirdText: palette.black2,
     border: palette.grey2,
+    black: palette.totalBlack,
   },
   spacing: {
     main: 16,
