@@ -7,11 +7,16 @@ import { theme } from "../utils/styles/theme";
 //////// Custom PNG icon ////////
 // const logOut = require("../assets/log-out.png");
 
-function LogoutIcon() {
+function LogoutIcon({ navigation }) {
   return (
     <View style={{ right: 16 }}>
       {/* <Image width={24} height={24} source={logOut} style={{}} /> */}
-      <Logout name="logout" size={24} color={theme.colors.secondaryText} />
+      <Logout
+        name="logout"
+        size={24}
+        color={theme.colors.secondaryText}
+        onPress={() => navigation.navigate("Registration")}
+      />
     </View>
   );
 }
