@@ -7,10 +7,12 @@ import LoginScreen from "./Screens/LoginScreen/LoginScreen";
 import PostsScreen from "./Screens/main/PostsScreen/PostsScreen";
 import CreatePostsScreen from "./Screens/main/CreatePostsScreen/CreatePostsScreen";
 import ProfileScreen from "./Screens/main/ProfileScreen/ProfileScreen";
+
 import PostsIcon from "./components/BottomNav/PostsIcon";
 import CreatePostIcon from "./components/BottomNav/CreatePostIcon";
 import ProfileIcon from "./components/BottomNav/ProfileIcon";
 import LogoutIcon from "./components/LogoutIcon";
+
 import { theme } from "./utils/styles/theme";
 
 const MainStack = createStackNavigator();
@@ -39,7 +41,7 @@ export const useRoute = isAuth => {
         tabBarShowLabel: false,
         tabBarStyle: {
           shadowColor: theme.colors.black,
-          shadowOffset: { width: 0, height: -0.5 },
+          shadowOffset: { width: 0, height: -0.3 },
           shadowOpacity: 0.3,
           shadowRadius: -27.1828,
           paddingTop: 4,
@@ -49,10 +51,10 @@ export const useRoute = isAuth => {
       <MainTab.Screen
         name="Posts"
         component={PostsScreen}
-        options={{
+        options={() => ({
           headerRight: () => <LogoutIcon />,
           tabBarIcon: () => <PostsIcon />,
-        }}
+        })}
       />
       <MainTab.Screen
         name="Create"
